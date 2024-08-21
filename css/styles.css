@@ -1,1 +1,619 @@
-/*# sourceMappingURL=styles.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  font-family: "Rubik";
+  color: hsl(236, 100%, 87%);
+  font-weight: 300;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(226, 43%, 10%);
+  padding: 4rem 2rem;
+  color: hsl(236, 100%, 87%);
+}
+body .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body .container .card__header {
+  grid-area: header;
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 15px;
+  max-width: 300px;
+}
+body .container .card__header__profile {
+  display: flex;
+  gap: 1rem;
+  background-color: hsl(246, 80%, 60%);
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 1rem;
+}
+body .container .card__header__profile--image {
+  width: 20%;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+body .container .card__header__profile__title--reason {
+  color: hsl(236, 100%, 87%);
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-bottom: 0.1rem;
+}
+body .container .card__header__profile__title--name {
+  color: white;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+body .container .card__header__period {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.8rem;
+}
+body .container .card__header__period [role=tab] {
+  background-color: hsl(235, 46%, 20%);
+  border: none;
+  color: hsl(236, 100%, 87%);
+  transition: box-shadow 0.2s ease-in-out;
+}
+body .container .card__header__period [role=tab]:focus {
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+  outline: none;
+}
+body .container .card__header__period [role=tab]:where([aria-selected=true], :hover, :focus, :focus-within) {
+  color: white;
+  cursor: pointer;
+}
+body .container .panel-containers [role=tabpanel][aria-hidden=true] {
+  display: none;
+}
+body .container .panel-containers .timecards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body .container .panel-containers .timecards .work {
+  grid-area: work;
+}
+body .container .panel-containers .timecards .work .card-top {
+  background-color: hsl(15, 100%, 70%);
+  background-image: url("../images/icon-work.svg");
+  background-repeat: no-repeat;
+  background-position: right 7% top -15%;
+  padding-top: 2rem;
+  border-radius: 15px;
+}
+body .container .panel-containers .timecards .work .card-top .card {
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 15px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+body .container .panel-containers .timecards .work .card-top .card__first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .work .card-top .card__first-row__title {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: white;
+}
+body .container .panel-containers .timecards .work .card-top .card__first-row .icon-ellipsis {
+  width: 30px;
+  height: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
+}
+body .container .panel-containers .timecards .work .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+body .container .panel-containers .timecards .work .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .work .card-top .card__second-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .work .card-top .card__second-row .current {
+  color: white;
+  font-weight: 300;
+  font-size: 2rem;
+}
+body .container .panel-containers .timecards .work .card-top .card__second-row .previous {
+  color: hsl(236, 100%, 87%);
+  font-size: 0.8rem;
+}
+body .container .panel-containers .timecards .play {
+  grid-area: play;
+}
+body .container .panel-containers .timecards .play .card-top {
+  background-color: hsl(195, 74%, 62%);
+  background-image: url("../images/icon-play.svg");
+  background-repeat: no-repeat;
+  background-position: right 7% top -15%;
+  padding-top: 2rem;
+  border-radius: 15px;
+}
+body .container .panel-containers .timecards .play .card-top .card {
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 15px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+body .container .panel-containers .timecards .play .card-top .card__first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .play .card-top .card__first-row__title {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: white;
+}
+body .container .panel-containers .timecards .play .card-top .card__first-row .icon-ellipsis {
+  width: 30px;
+  height: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
+}
+body .container .panel-containers .timecards .play .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+body .container .panel-containers .timecards .play .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .play .card-top .card__second-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .play .card-top .card__second-row .current {
+  color: white;
+  font-weight: 300;
+  font-size: 2rem;
+}
+body .container .panel-containers .timecards .play .card-top .card__second-row .previous {
+  color: hsl(236, 100%, 87%);
+  font-size: 0.8rem;
+}
+body .container .panel-containers .timecards .study {
+  grid-area: study;
+}
+body .container .panel-containers .timecards .study .card-top {
+  background-color: hsl(348, 100%, 68%);
+  background-image: url("../images/icon-study.svg");
+  background-repeat: no-repeat;
+  background-position: right 7% top -15%;
+  padding-top: 2rem;
+  border-radius: 15px;
+}
+body .container .panel-containers .timecards .study .card-top .card {
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 15px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+body .container .panel-containers .timecards .study .card-top .card__first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .study .card-top .card__first-row__title {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: white;
+}
+body .container .panel-containers .timecards .study .card-top .card__first-row .icon-ellipsis {
+  width: 30px;
+  height: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
+}
+body .container .panel-containers .timecards .study .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+body .container .panel-containers .timecards .study .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .study .card-top .card__second-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .study .card-top .card__second-row .current {
+  color: white;
+  font-weight: 300;
+  font-size: 2rem;
+}
+body .container .panel-containers .timecards .study .card-top .card__second-row .previous {
+  color: hsl(236, 100%, 87%);
+  font-size: 0.8rem;
+}
+body .container .panel-containers .timecards .exercise {
+  grid-area: exercise;
+}
+body .container .panel-containers .timecards .exercise .card-top {
+  background-color: hsl(145, 58%, 55%);
+  background-image: url("../images/icon-exercise.svg");
+  background-repeat: no-repeat;
+  background-position: right 7% top -15%;
+  padding-top: 2rem;
+  border-radius: 15px;
+}
+body .container .panel-containers .timecards .exercise .card-top .card {
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 15px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+body .container .panel-containers .timecards .exercise .card-top .card__first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .exercise .card-top .card__first-row__title {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: white;
+}
+body .container .panel-containers .timecards .exercise .card-top .card__first-row .icon-ellipsis {
+  width: 30px;
+  height: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
+}
+body .container .panel-containers .timecards .exercise .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+body .container .panel-containers .timecards .exercise .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .exercise .card-top .card__second-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .exercise .card-top .card__second-row .current {
+  color: white;
+  font-weight: 300;
+  font-size: 2rem;
+}
+body .container .panel-containers .timecards .exercise .card-top .card__second-row .previous {
+  color: hsl(236, 100%, 87%);
+  font-size: 0.8rem;
+}
+body .container .panel-containers .timecards .social {
+  grid-area: social;
+}
+body .container .panel-containers .timecards .social .card-top {
+  background-color: hsl(264, 64%, 52%);
+  background-image: url("../images/icon-social.svg");
+  background-repeat: no-repeat;
+  background-position: right 7% top -15%;
+  padding-top: 2rem;
+  border-radius: 15px;
+}
+body .container .panel-containers .timecards .social .card-top .card {
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 15px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+body .container .panel-containers .timecards .social .card-top .card__first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .social .card-top .card__first-row__title {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: white;
+}
+body .container .panel-containers .timecards .social .card-top .card__first-row .icon-ellipsis {
+  width: 30px;
+  height: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
+}
+body .container .panel-containers .timecards .social .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+body .container .panel-containers .timecards .social .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .social .card-top .card__second-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .social .card-top .card__second-row .current {
+  color: white;
+  font-weight: 300;
+  font-size: 2rem;
+}
+body .container .panel-containers .timecards .social .card-top .card__second-row .previous {
+  color: hsl(236, 100%, 87%);
+  font-size: 0.8rem;
+}
+body .container .panel-containers .timecards .self-care {
+  grid-area: self-care;
+}
+body .container .panel-containers .timecards .self-care .card-top {
+  background-color: hsl(43, 84%, 65%);
+  background-image: url("../images/icon-self-care.svg");
+  background-repeat: no-repeat;
+  background-position: right 7% top -15%;
+  padding-top: 2rem;
+  border-radius: 15px;
+}
+body .container .panel-containers .timecards .self-care .card-top .card {
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 15px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+body .container .panel-containers .timecards .self-care .card-top .card__first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .self-care .card-top .card__first-row__title {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: white;
+}
+body .container .panel-containers .timecards .self-care .card-top .card__first-row .icon-ellipsis {
+  width: 30px;
+  height: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
+}
+body .container .panel-containers .timecards .self-care .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+body .container .panel-containers .timecards .self-care .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .self-care .card-top .card__second-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .panel-containers .timecards .self-care .card-top .card__second-row .current {
+  color: white;
+  font-weight: 300;
+  font-size: 2rem;
+}
+body .container .panel-containers .timecards .self-care .card-top .card__second-row .previous {
+  color: hsl(236, 100%, 87%);
+  font-size: 0.8rem;
+}
+body footer {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    flex-direction: column;
+    gap: 1.5rem;
+    height: calc(100vh - 1px);
+    padding: 10rem 7rem;
+    align-items: center;
+  }
+  body .container {
+    flex-direction: row;
+  }
+  body .container .card__header {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+  }
+  body .container .card__header__profile {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: unset;
+    flex-grow: 1;
+  }
+  body .container .card__header__profile--image {
+    width: 40%;
+  }
+  body .container .card__header__profile__title--name {
+    font-size: 1.5rem;
+  }
+  body .container .card__header__period {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  body .container .panel-containers .timecards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "work play study" "exercise social self-care";
+    place-content: center;
+    gap: 1rem;
+  }
+  body .container .panel-containers .timecards .work .card-top .card {
+    bottom: 0;
+    width: 100%;
+    min-width: 200px;
+    height: 80%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  body .container .panel-containers .timecards .work .card-top .card__second-row {
+    flex-direction: column;
+    justify-content: unset;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  body .container .panel-containers .timecards .work .card-top .card__second-row--current {
+    margin-bottom: 0.2rem;
+    font-size: 2.5rem;
+  }
+  body .container .panel-containers .timecards .work .card-top .card:hover {
+    background-color: hsl(235, 45%, 61%);
+  }
+  body .container .panel-containers .timecards .play .card-top .card {
+    bottom: 0;
+    width: 100%;
+    min-width: 200px;
+    height: 80%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  body .container .panel-containers .timecards .play .card-top .card__second-row {
+    flex-direction: column;
+    justify-content: unset;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  body .container .panel-containers .timecards .play .card-top .card__second-row--current {
+    margin-bottom: 0.2rem;
+    font-size: 2.5rem;
+  }
+  body .container .panel-containers .timecards .play .card-top .card:hover {
+    background-color: hsl(235, 45%, 61%);
+  }
+  body .container .panel-containers .timecards .study .card-top .card {
+    bottom: 0;
+    width: 100%;
+    min-width: 200px;
+    height: 80%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  body .container .panel-containers .timecards .study .card-top .card__second-row {
+    flex-direction: column;
+    justify-content: unset;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  body .container .panel-containers .timecards .study .card-top .card__second-row--current {
+    margin-bottom: 0.2rem;
+    font-size: 2.5rem;
+  }
+  body .container .panel-containers .timecards .study .card-top .card:hover {
+    background-color: hsl(235, 45%, 61%);
+  }
+  body .container .panel-containers .timecards .exercise .card-top .card {
+    bottom: 0;
+    width: 100%;
+    min-width: 200px;
+    height: 80%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  body .container .panel-containers .timecards .exercise .card-top .card__second-row {
+    flex-direction: column;
+    justify-content: unset;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  body .container .panel-containers .timecards .exercise .card-top .card__second-row--current {
+    margin-bottom: 0.2rem;
+    font-size: 2.5rem;
+  }
+  body .container .panel-containers .timecards .exercise .card-top .card:hover {
+    background-color: hsl(235, 45%, 61%);
+  }
+  body .container .panel-containers .timecards .social .card-top .card {
+    bottom: 0;
+    width: 100%;
+    min-width: 200px;
+    height: 80%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  body .container .panel-containers .timecards .social .card-top .card__second-row {
+    flex-direction: column;
+    justify-content: unset;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  body .container .panel-containers .timecards .social .card-top .card__second-row--current {
+    margin-bottom: 0.2rem;
+    font-size: 2.5rem;
+  }
+  body .container .panel-containers .timecards .social .card-top .card:hover {
+    background-color: hsl(235, 45%, 61%);
+  }
+  body .container .panel-containers .timecards .self-care .card-top .card {
+    bottom: 0;
+    width: 100%;
+    min-width: 200px;
+    height: 80%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  body .container .panel-containers .timecards .self-care .card-top .card__second-row {
+    flex-direction: column;
+    justify-content: unset;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  body .container .panel-containers .timecards .self-care .card-top .card__second-row--current {
+    margin-bottom: 0.2rem;
+    font-size: 2.5rem;
+  }
+  body .container .panel-containers .timecards .self-care .card-top .card:hover {
+    background-color: hsl(235, 45%, 61%);
+  }
+  body footer {
+    display: block;
+  }
+}/*# sourceMappingURL=styles.css.map */

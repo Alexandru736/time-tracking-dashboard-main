@@ -1,0 +1,99 @@
+@mixin dashboard($color, $dashboard-icon) {
+
+    .card-top {
+        background-color: $color;
+        background-image: $dashboard-icon;
+        background-repeat: no-repeat;
+        background-position: right 7% top -15%;
+        padding-top: 2rem;
+        border-radius: 15px;
+
+        .card {
+            background-color: $clr-dark-blue;
+            border-radius: 15px;
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+
+            &__first-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &__title {
+                    font-size: .8rem;
+                    font-weight: $regular-weight;
+                    color: white;
+                }
+
+                .icon-ellipsis {
+                    width: 30px;
+                    height: 5px;
+                    background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
+                    background-repeat: no-repeat;
+                    background-color: inherit;
+                    border: none;
+                    background-position: 50%;
+                }
+
+                .icon-ellipsis:where(:hover, :focus) {
+                    background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
+                }
+
+                .icon-ellipsis:focus {
+                    outline: none;
+                    transition: box-shadow 0.2s ease-in-out;
+                    box-shadow: 0 0 15px .2rem $clr-desaturated-blue;
+                }
+            }
+
+            &__second-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .current {
+                    color: white;
+                    font-weight: $light-weight;
+                    font-size: 2rem;
+                }
+
+                .previous {
+                    color: $clr-pale-blue;
+                    font-size: .8rem;
+                }
+            }
+        }
+    }
+}
+
+@mixin dashboard-desktop {
+
+    .card-top {
+
+        .card {
+            bottom: 0;
+            width: 100%;
+            min-width: 200px;
+            height: 80%;
+            padding: 1rem;
+            gap: 1rem;
+
+            &__second-row {
+                flex-direction: column;
+                justify-content: unset;
+                align-items: flex-start;
+                gap: .5rem;
+
+                &--current {
+                    margin-bottom: 0.2rem;
+                    font-size: 2.5rem;
+                }
+            }
+        }
+
+        .card:hover {
+            background-color: $clr-desaturated-blue;
+        }
+    }
+}

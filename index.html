@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 
-  <title>Frontend Mentor | Time tracking dashboard</title>
+  <title>Frontend Mentor | Time tracking card-top</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -16,66 +16,46 @@
   </style>
 </head>
 <body>
-
-  Report for
-  Jeremy Robson
-
-  Daily
-  Weekly
-  Monthly
-
-  Work
-  5hrs <!-- daily -->
-  Previous - 7hrs <!-- daily -->
-  32hrs <!-- weekly -->
-  Previous - 36hrs <!-- weekly -->
-  103hrs <!-- monthly -->
-  Previous - 128hrs <!-- monthly -->
-
-  Play
-  1hr <!-- daily -->
-  Previous - 2hrs <!-- daily -->
-  10hrs <!-- weekly -->
-  Previous - 8hrs <!-- weekly -->
-  23hrs <!-- monthly -->
-  Previous - 29hrs <!-- monthly -->
-
-  Study
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 7hrs <!-- weekly -->
-  13hrs <!-- monthly -->
-  Previous - 19hrs <!-- monthly -->
-
-  Exercise
-  1hr <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 5hrs <!-- weekly -->
-  11hrs <!-- monthly -->
-  Previous - 18hrs <!-- monthly -->
-
-  Social
-  1hr <!-- daily -->
-  Previous - 3hrs <!-- daily -->
-  5hrs <!-- weekly -->
-  Previous - 10hrs <!-- weekly -->
-  21hrs <!-- monthly -->
-  Previous - 23hrs <!-- monthly -->
-
-  Self Care
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  2hrs <!-- weekly -->
-  Previous - 2hrs <!-- weekly -->
-  7hrs <!-- monthly -->
-  Previous - 11hrs <!-- monthly -->
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Alex Ionita</a>.
+  <div class="container">
+    <div class="card__header">
+      <div class="card__header__profile">
+        <img src="images/image-jeremy.png" alt="" class="card__header__profile--image">
+        <div class="card__header__profile__title">
+          <p class="card__header__profile__title--reason">Report for</p>
+          <h1 class="card__header__profile__title--name">Jeremy Robson</h1>
+        </div>
+      </div>
+      <div role="tablist" aria-label="Time tracking tablist" class="card__header__period">
+        <button 
+          role="tab" 
+          aria-controls="panel-daily" 
+          id="tab-daily" 
+          aria-selected="true">
+            Daily
+        </button>
+        <button 
+          role="tab" 
+          aria-controls="panel-weekly" 
+          id="tab-weekly" 
+          aria-selected="false">
+            Weekly
+        </button>
+        <button 
+          role="tab" 
+          aria-controls="panel-monthly" 
+          id="tab-monthly" 
+          aria-selected="false">
+            Monthly
+        </button>
+      </div>
+    </div>
   </div>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/Alexandru736/time-tracking-dashboard-main">Alex Ionita</a>.
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
