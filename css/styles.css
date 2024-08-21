@@ -20,15 +20,20 @@ body {
   align-items: center;
   background-color: hsl(226, 43%, 10%);
   padding: 4rem 2rem;
+  color: hsl(236, 100%, 87%);
 }
-body .card__header {
+body .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body .container .card__header {
   grid-area: header;
   background-color: hsl(235, 46%, 20%);
   border-radius: 15px;
-  max-width: 400px;
-  width: 100%;
+  max-width: 300px;
 }
-body .card__header__profile {
+body .container .card__header__profile {
   display: flex;
   gap: 1rem;
   background-color: hsl(246, 80%, 60%);
@@ -37,24 +42,23 @@ body .card__header__profile {
   border-radius: 15px;
   padding: 1rem;
 }
-body .card__header__profile--image {
-  width: 25%;
-  height: 25%;
+body .container .card__header__profile--image {
+  width: 20%;
   border: 3px solid white;
   border-radius: 50%;
 }
-body .card__header__profile__title--reason {
+body .container .card__header__profile__title--reason {
   color: hsl(236, 100%, 87%);
   font-weight: 400;
   font-size: 0.8rem;
   margin-bottom: 0.1rem;
 }
-body .card__header__profile__title--name {
+body .container .card__header__profile__title--name {
   color: white;
   font-weight: 300;
   font-size: 1.2rem;
 }
-body .card__header__period {
+body .container .card__header__period {
   display: flex;
   gap: 2rem;
   padding: 1rem;
@@ -62,21 +66,32 @@ body .card__header__period {
   align-items: center;
   font-size: 0.8rem;
 }
-body .card__header__period .link:hover {
+body .container .card__header__period [role=tab] {
+  background-color: hsl(235, 46%, 20%);
+  border: none;
+  color: hsl(236, 100%, 87%);
+  transition: box-shadow 0.2s ease-in-out;
+}
+body .container .card__header__period [role=tab]:focus {
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+  outline: none;
+}
+body .container .card__header__period [role=tab]:where([aria-selected=true], :hover, :focus, :focus-within) {
   color: white;
   cursor: pointer;
 }
-body .card__header__period .link:visited:not(:hover) {
-  color: var(--clr-primary-100);
+body .container .panel-containers [role=tabpanel][aria-hidden=true] {
+  display: none;
 }
-body section {
-  max-width: 400px;
-  width: 100%;
+body .container .panel-containers .timecards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-body .work {
+body .container .panel-containers .timecards .work {
   grid-area: work;
 }
-body .work .dashboard {
+body .container .panel-containers .timecards .work .card-top {
   background-color: hsl(15, 100%, 70%);
   background-image: url("../images/icon-work.svg");
   background-repeat: no-repeat;
@@ -84,57 +99,58 @@ body .work .dashboard {
   padding-top: 2rem;
   border-radius: 15px;
 }
-body .work .dashboard .card {
+body .container .panel-containers .timecards .work .card-top .card {
   background-color: hsl(235, 46%, 20%);
   border-radius: 15px;
   padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
 }
-body .work .dashboard .card__first-row {
+body .container .panel-containers .timecards .work .card-top .card__first-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .work .dashboard .card__first-row__title {
+body .container .panel-containers .timecards .work .card-top .card__first-row__title {
   font-size: 0.8rem;
   font-weight: 400;
   color: white;
 }
-body .work .dashboard .card__first-row .icon-ellipsis {
+body .container .panel-containers .timecards .work .card-top .card__first-row .icon-ellipsis {
   width: 30px;
   height: 5px;
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
 }
-body .work .dashboard .card__first-row .icon-ellipsis:hover {
+body .container .panel-containers .timecards .work .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
-body .work .dashboard .card__second-row__daily {
+body .container .panel-containers .timecards .work .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .work .card-top .card__second-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .work .dashboard .card__second-row__weekly {
-  display: none;
-}
-body .work .dashboard .card__second-row__monthly {
-  display: none;
-}
-body .work .dashboard .card__second-row .current {
+body .container .panel-containers .timecards .work .card-top .card__second-row .current {
   color: white;
   font-weight: 300;
   font-size: 2rem;
 }
-body .work .dashboard .card__second-row .previous {
+body .container .panel-containers .timecards .work .card-top .card__second-row .previous {
   color: hsl(236, 100%, 87%);
   font-size: 0.8rem;
 }
-body .play {
+body .container .panel-containers .timecards .play {
   grid-area: play;
 }
-body .play .dashboard {
+body .container .panel-containers .timecards .play .card-top {
   background-color: hsl(195, 74%, 62%);
   background-image: url("../images/icon-play.svg");
   background-repeat: no-repeat;
@@ -142,57 +158,58 @@ body .play .dashboard {
   padding-top: 2rem;
   border-radius: 15px;
 }
-body .play .dashboard .card {
+body .container .panel-containers .timecards .play .card-top .card {
   background-color: hsl(235, 46%, 20%);
   border-radius: 15px;
   padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
 }
-body .play .dashboard .card__first-row {
+body .container .panel-containers .timecards .play .card-top .card__first-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .play .dashboard .card__first-row__title {
+body .container .panel-containers .timecards .play .card-top .card__first-row__title {
   font-size: 0.8rem;
   font-weight: 400;
   color: white;
 }
-body .play .dashboard .card__first-row .icon-ellipsis {
+body .container .panel-containers .timecards .play .card-top .card__first-row .icon-ellipsis {
   width: 30px;
   height: 5px;
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
 }
-body .play .dashboard .card__first-row .icon-ellipsis:hover {
+body .container .panel-containers .timecards .play .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
-body .play .dashboard .card__second-row__daily {
+body .container .panel-containers .timecards .play .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .play .card-top .card__second-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .play .dashboard .card__second-row__weekly {
-  display: none;
-}
-body .play .dashboard .card__second-row__monthly {
-  display: none;
-}
-body .play .dashboard .card__second-row .current {
+body .container .panel-containers .timecards .play .card-top .card__second-row .current {
   color: white;
   font-weight: 300;
   font-size: 2rem;
 }
-body .play .dashboard .card__second-row .previous {
+body .container .panel-containers .timecards .play .card-top .card__second-row .previous {
   color: hsl(236, 100%, 87%);
   font-size: 0.8rem;
 }
-body .study {
+body .container .panel-containers .timecards .study {
   grid-area: study;
 }
-body .study .dashboard {
+body .container .panel-containers .timecards .study .card-top {
   background-color: hsl(348, 100%, 68%);
   background-image: url("../images/icon-study.svg");
   background-repeat: no-repeat;
@@ -200,57 +217,58 @@ body .study .dashboard {
   padding-top: 2rem;
   border-radius: 15px;
 }
-body .study .dashboard .card {
+body .container .panel-containers .timecards .study .card-top .card {
   background-color: hsl(235, 46%, 20%);
   border-radius: 15px;
   padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
 }
-body .study .dashboard .card__first-row {
+body .container .panel-containers .timecards .study .card-top .card__first-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .study .dashboard .card__first-row__title {
+body .container .panel-containers .timecards .study .card-top .card__first-row__title {
   font-size: 0.8rem;
   font-weight: 400;
   color: white;
 }
-body .study .dashboard .card__first-row .icon-ellipsis {
+body .container .panel-containers .timecards .study .card-top .card__first-row .icon-ellipsis {
   width: 30px;
   height: 5px;
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
 }
-body .study .dashboard .card__first-row .icon-ellipsis:hover {
+body .container .panel-containers .timecards .study .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
-body .study .dashboard .card__second-row__daily {
+body .container .panel-containers .timecards .study .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .study .card-top .card__second-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .study .dashboard .card__second-row__weekly {
-  display: none;
-}
-body .study .dashboard .card__second-row__monthly {
-  display: none;
-}
-body .study .dashboard .card__second-row .current {
+body .container .panel-containers .timecards .study .card-top .card__second-row .current {
   color: white;
   font-weight: 300;
   font-size: 2rem;
 }
-body .study .dashboard .card__second-row .previous {
+body .container .panel-containers .timecards .study .card-top .card__second-row .previous {
   color: hsl(236, 100%, 87%);
   font-size: 0.8rem;
 }
-body .exercise {
+body .container .panel-containers .timecards .exercise {
   grid-area: exercise;
 }
-body .exercise .dashboard {
+body .container .panel-containers .timecards .exercise .card-top {
   background-color: hsl(145, 58%, 55%);
   background-image: url("../images/icon-exercise.svg");
   background-repeat: no-repeat;
@@ -258,57 +276,58 @@ body .exercise .dashboard {
   padding-top: 2rem;
   border-radius: 15px;
 }
-body .exercise .dashboard .card {
+body .container .panel-containers .timecards .exercise .card-top .card {
   background-color: hsl(235, 46%, 20%);
   border-radius: 15px;
   padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
 }
-body .exercise .dashboard .card__first-row {
+body .container .panel-containers .timecards .exercise .card-top .card__first-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .exercise .dashboard .card__first-row__title {
+body .container .panel-containers .timecards .exercise .card-top .card__first-row__title {
   font-size: 0.8rem;
   font-weight: 400;
   color: white;
 }
-body .exercise .dashboard .card__first-row .icon-ellipsis {
+body .container .panel-containers .timecards .exercise .card-top .card__first-row .icon-ellipsis {
   width: 30px;
   height: 5px;
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
 }
-body .exercise .dashboard .card__first-row .icon-ellipsis:hover {
+body .container .panel-containers .timecards .exercise .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
-body .exercise .dashboard .card__second-row__daily {
+body .container .panel-containers .timecards .exercise .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .exercise .card-top .card__second-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .exercise .dashboard .card__second-row__weekly {
-  display: none;
-}
-body .exercise .dashboard .card__second-row__monthly {
-  display: none;
-}
-body .exercise .dashboard .card__second-row .current {
+body .container .panel-containers .timecards .exercise .card-top .card__second-row .current {
   color: white;
   font-weight: 300;
   font-size: 2rem;
 }
-body .exercise .dashboard .card__second-row .previous {
+body .container .panel-containers .timecards .exercise .card-top .card__second-row .previous {
   color: hsl(236, 100%, 87%);
   font-size: 0.8rem;
 }
-body .social {
+body .container .panel-containers .timecards .social {
   grid-area: social;
 }
-body .social .dashboard {
+body .container .panel-containers .timecards .social .card-top {
   background-color: hsl(264, 64%, 52%);
   background-image: url("../images/icon-social.svg");
   background-repeat: no-repeat;
@@ -316,57 +335,58 @@ body .social .dashboard {
   padding-top: 2rem;
   border-radius: 15px;
 }
-body .social .dashboard .card {
+body .container .panel-containers .timecards .social .card-top .card {
   background-color: hsl(235, 46%, 20%);
   border-radius: 15px;
   padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
 }
-body .social .dashboard .card__first-row {
+body .container .panel-containers .timecards .social .card-top .card__first-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .social .dashboard .card__first-row__title {
+body .container .panel-containers .timecards .social .card-top .card__first-row__title {
   font-size: 0.8rem;
   font-weight: 400;
   color: white;
 }
-body .social .dashboard .card__first-row .icon-ellipsis {
+body .container .panel-containers .timecards .social .card-top .card__first-row .icon-ellipsis {
   width: 30px;
   height: 5px;
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
 }
-body .social .dashboard .card__first-row .icon-ellipsis:hover {
+body .container .panel-containers .timecards .social .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
-body .social .dashboard .card__second-row__daily {
+body .container .panel-containers .timecards .social .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .social .card-top .card__second-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .social .dashboard .card__second-row__weekly {
-  display: none;
-}
-body .social .dashboard .card__second-row__monthly {
-  display: none;
-}
-body .social .dashboard .card__second-row .current {
+body .container .panel-containers .timecards .social .card-top .card__second-row .current {
   color: white;
   font-weight: 300;
   font-size: 2rem;
 }
-body .social .dashboard .card__second-row .previous {
+body .container .panel-containers .timecards .social .card-top .card__second-row .previous {
   color: hsl(236, 100%, 87%);
   font-size: 0.8rem;
 }
-body .self-care {
+body .container .panel-containers .timecards .self-care {
   grid-area: self-care;
 }
-body .self-care .dashboard {
+body .container .panel-containers .timecards .self-care .card-top {
   background-color: hsl(43, 84%, 65%);
   background-image: url("../images/icon-self-care.svg");
   background-repeat: no-repeat;
@@ -374,50 +394,51 @@ body .self-care .dashboard {
   padding-top: 2rem;
   border-radius: 15px;
 }
-body .self-care .dashboard .card {
+body .container .panel-containers .timecards .self-care .card-top .card {
   background-color: hsl(235, 46%, 20%);
   border-radius: 15px;
   padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
 }
-body .self-care .dashboard .card__first-row {
+body .container .panel-containers .timecards .self-care .card-top .card__first-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .self-care .dashboard .card__first-row__title {
+body .container .panel-containers .timecards .self-care .card-top .card__first-row__title {
   font-size: 0.8rem;
   font-weight: 400;
   color: white;
 }
-body .self-care .dashboard .card__first-row .icon-ellipsis {
+body .container .panel-containers .timecards .self-care .card-top .card__first-row .icon-ellipsis {
   width: 30px;
   height: 5px;
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  background-position: 50%;
 }
-body .self-care .dashboard .card__first-row .icon-ellipsis:hover {
+body .container .panel-containers .timecards .self-care .card-top .card__first-row .icon-ellipsis:where(:hover, :focus) {
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
-body .self-care .dashboard .card__second-row__daily {
+body .container .panel-containers .timecards .self-care .card-top .card__first-row .icon-ellipsis:focus {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px 0.2rem hsl(235, 45%, 61%);
+}
+body .container .panel-containers .timecards .self-care .card-top .card__second-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .self-care .dashboard .card__second-row__weekly {
-  display: none;
-}
-body .self-care .dashboard .card__second-row__monthly {
-  display: none;
-}
-body .self-care .dashboard .card__second-row .current {
+body .container .panel-containers .timecards .self-care .card-top .card__second-row .current {
   color: white;
   font-weight: 300;
   font-size: 2rem;
 }
-body .self-care .dashboard .card__second-row .previous {
+body .container .panel-containers .timecards .self-care .card-top .card__second-row .previous {
   color: hsl(236, 100%, 87%);
   font-size: 0.8rem;
 }
@@ -427,200 +448,172 @@ body footer {
 
 @media screen and (min-width: 1000px) {
   body {
-    display: grid;
-    grid-template-columns: repeat(4, 10rem);
-    grid-template-rows: repeat(2, 10rem);
-    grid-template-areas: "header work play study" "header exercise social self-care";
+    flex-direction: column;
     gap: 1.5rem;
     height: calc(100vh - 1px);
     padding: 10rem 7rem;
-    place-content: center;
+    align-items: center;
   }
-  body .card__header {
-    align-self: start;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 70% 30%;
+  body .container {
+    flex-direction: row;
   }
-  body .card__header__profile {
+  body .container .card__header {
+    display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-    align-items: flex-start;
-    justify-content: unset;
+    width: 10rem;
   }
-  body .card__header__profile--image {
+  body .container .card__header__profile {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: unset;
+    flex-grow: 1;
+  }
+  body .container .card__header__profile--image {
     width: 40%;
   }
-  body .card__header__profile__title--name {
+  body .container .card__header__profile__title--name {
     font-size: 1.5rem;
   }
-  body .card__header__period {
+  body .container .card__header__period {
     flex-direction: column;
     gap: 0.5rem;
     align-items: flex-start;
     padding: 1rem;
   }
-  body .work {
-    height: 100%;
+  body .container .panel-containers .timecards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "work play study" "exercise social self-care";
+    place-content: center;
+    gap: 1rem;
   }
-  body .work .dashboard {
-    height: 100%;
-    position: relative;
-  }
-  body .work .dashboard .card {
-    position: absolute;
+  body .container .panel-containers .timecards .work .card-top .card {
     bottom: 0;
     width: 100%;
+    min-width: 200px;
     height: 80%;
     padding: 1rem;
-    justify-content: space-between;
+    gap: 1rem;
   }
-  body .work .dashboard .card__second-row__daily {
+  body .container .panel-containers .timecards .work .card-top .card__second-row {
     flex-direction: column;
     justify-content: unset;
     align-items: flex-start;
+    gap: 0.5rem;
   }
-  body .work .dashboard .card__second-row__daily--current {
+  body .container .panel-containers .timecards .work .card-top .card__second-row--current {
     margin-bottom: 0.2rem;
     font-size: 2.5rem;
   }
-  body .work .dashboard .card:hover {
+  body .container .panel-containers .timecards .work .card-top .card:hover {
     background-color: hsl(235, 45%, 61%);
   }
-  body .play {
-    height: 100%;
-  }
-  body .play .dashboard {
-    height: 100%;
-    position: relative;
-  }
-  body .play .dashboard .card {
-    position: absolute;
+  body .container .panel-containers .timecards .play .card-top .card {
     bottom: 0;
     width: 100%;
+    min-width: 200px;
     height: 80%;
     padding: 1rem;
-    justify-content: space-between;
+    gap: 1rem;
   }
-  body .play .dashboard .card__second-row__daily {
+  body .container .panel-containers .timecards .play .card-top .card__second-row {
     flex-direction: column;
     justify-content: unset;
     align-items: flex-start;
+    gap: 0.5rem;
   }
-  body .play .dashboard .card__second-row__daily--current {
+  body .container .panel-containers .timecards .play .card-top .card__second-row--current {
     margin-bottom: 0.2rem;
     font-size: 2.5rem;
   }
-  body .play .dashboard .card:hover {
+  body .container .panel-containers .timecards .play .card-top .card:hover {
     background-color: hsl(235, 45%, 61%);
   }
-  body .study {
-    height: 100%;
-  }
-  body .study .dashboard {
-    height: 100%;
-    position: relative;
-  }
-  body .study .dashboard .card {
-    position: absolute;
+  body .container .panel-containers .timecards .study .card-top .card {
     bottom: 0;
     width: 100%;
+    min-width: 200px;
     height: 80%;
     padding: 1rem;
-    justify-content: space-between;
+    gap: 1rem;
   }
-  body .study .dashboard .card__second-row__daily {
+  body .container .panel-containers .timecards .study .card-top .card__second-row {
     flex-direction: column;
     justify-content: unset;
     align-items: flex-start;
+    gap: 0.5rem;
   }
-  body .study .dashboard .card__second-row__daily--current {
+  body .container .panel-containers .timecards .study .card-top .card__second-row--current {
     margin-bottom: 0.2rem;
     font-size: 2.5rem;
   }
-  body .study .dashboard .card:hover {
+  body .container .panel-containers .timecards .study .card-top .card:hover {
     background-color: hsl(235, 45%, 61%);
   }
-  body .exercise {
-    height: 100%;
-  }
-  body .exercise .dashboard {
-    height: 100%;
-    position: relative;
-  }
-  body .exercise .dashboard .card {
-    position: absolute;
+  body .container .panel-containers .timecards .exercise .card-top .card {
     bottom: 0;
     width: 100%;
+    min-width: 200px;
     height: 80%;
     padding: 1rem;
-    justify-content: space-between;
+    gap: 1rem;
   }
-  body .exercise .dashboard .card__second-row__daily {
+  body .container .panel-containers .timecards .exercise .card-top .card__second-row {
     flex-direction: column;
     justify-content: unset;
     align-items: flex-start;
+    gap: 0.5rem;
   }
-  body .exercise .dashboard .card__second-row__daily--current {
+  body .container .panel-containers .timecards .exercise .card-top .card__second-row--current {
     margin-bottom: 0.2rem;
     font-size: 2.5rem;
   }
-  body .exercise .dashboard .card:hover {
+  body .container .panel-containers .timecards .exercise .card-top .card:hover {
     background-color: hsl(235, 45%, 61%);
   }
-  body .social {
-    height: 100%;
-  }
-  body .social .dashboard {
-    height: 100%;
-    position: relative;
-  }
-  body .social .dashboard .card {
-    position: absolute;
+  body .container .panel-containers .timecards .social .card-top .card {
     bottom: 0;
     width: 100%;
+    min-width: 200px;
     height: 80%;
     padding: 1rem;
-    justify-content: space-between;
+    gap: 1rem;
   }
-  body .social .dashboard .card__second-row__daily {
+  body .container .panel-containers .timecards .social .card-top .card__second-row {
     flex-direction: column;
     justify-content: unset;
     align-items: flex-start;
+    gap: 0.5rem;
   }
-  body .social .dashboard .card__second-row__daily--current {
+  body .container .panel-containers .timecards .social .card-top .card__second-row--current {
     margin-bottom: 0.2rem;
     font-size: 2.5rem;
   }
-  body .social .dashboard .card:hover {
+  body .container .panel-containers .timecards .social .card-top .card:hover {
     background-color: hsl(235, 45%, 61%);
   }
-  body .self-care {
-    height: 100%;
-  }
-  body .self-care .dashboard {
-    height: 100%;
-    position: relative;
-  }
-  body .self-care .dashboard .card {
-    position: absolute;
+  body .container .panel-containers .timecards .self-care .card-top .card {
     bottom: 0;
     width: 100%;
+    min-width: 200px;
     height: 80%;
     padding: 1rem;
-    justify-content: space-between;
+    gap: 1rem;
   }
-  body .self-care .dashboard .card__second-row__daily {
+  body .container .panel-containers .timecards .self-care .card-top .card__second-row {
     flex-direction: column;
     justify-content: unset;
     align-items: flex-start;
+    gap: 0.5rem;
   }
-  body .self-care .dashboard .card__second-row__daily--current {
+  body .container .panel-containers .timecards .self-care .card-top .card__second-row--current {
     margin-bottom: 0.2rem;
     font-size: 2.5rem;
   }
-  body .self-care .dashboard .card:hover {
+  body .container .panel-containers .timecards .self-care .card-top .card:hover {
     background-color: hsl(235, 45%, 61%);
+  }
+  body footer {
+    display: block;
   }
 }/*# sourceMappingURL=styles.css.map */

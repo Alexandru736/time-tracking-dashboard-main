@@ -10,98 +10,120 @@ body {
     align-items: center;
     background-color: $clr-very-dark-blue;
     padding: 4rem 2rem;
+    color: $clr-pale-blue;
 
-    .card__header {
-        grid-area: header;
-        background-color: $clr-dark-blue;
-        border-radius: 15px;
-        max-width: 400px;
-        width: 100%;
-        
-        &__profile {
-            display: flex;
-            gap: 1rem;
-            background-color: $clr-blue;
-            align-items: center;
-            justify-content: center;
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .card__header {
+            grid-area: header;
+            background-color: $clr-dark-blue;
             border-radius: 15px;
-            padding: 1rem;
+            max-width: 300px;
+            
+            &__profile {
+                display: flex;
+                gap: 1rem;
+                background-color: $clr-blue;
+                align-items: center;
+                justify-content: center;
+                border-radius: 15px;
+                padding: 1rem;
 
-            &--image {
-                width: 25%;
-                height: 25%;
-                border: 3px solid white;
-                border-radius: 50%;
+                &--image {
+                    width: 20%;
+                    border: 3px solid white;
+                    border-radius: 50%;
+                }
+
+                &__title {
+                    &--reason {
+                        color: $clr-pale-blue;
+                        font-weight: $regular-weight;
+                        font-size: .8rem;
+                        margin-bottom: .1rem;
+                    }
+
+                    &--name {
+                        color: white;
+                        font-weight: $light-weight;
+                        font-size: 1.2rem;
+                    }
+                }
             }
 
-            &__title {
-                &--reason {
+            &__period {
+                display: flex;
+                gap: 2rem;
+                padding: 1rem;
+                justify-content: space-around;
+                align-items: center;
+                font-size: .8rem;
+                
+                [role="tab"] {
+                    background-color: $clr-dark-blue;
+                    border: none;
                     color: $clr-pale-blue;
-                    font-weight: $regular-weight;
-                    font-size: .8rem;
-                    margin-bottom: .1rem;
+                    transition: box-shadow 0.2s ease-in-out;
                 }
 
-                &--name {
+                [role="tab"]:focus {
+                    box-shadow: 0 0 15px .2rem $clr-desaturated-blue;
+                    outline: none;
+                }
+
+                [role="tab"]:where([aria-selected="true"], :hover, :focus, :focus-within) {
                     color: white;
-                    font-weight: $light-weight;
-                    font-size: 1.2rem;
+                    cursor: pointer;
+                }
+
+                
+            }
+        }
+
+        .panel-containers {
+            [role="tabpanel"][aria-hidden="true"] {
+                display: none;
+            }
+
+            .timecards {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                .work {
+                    grid-area: work;
+                    @include dashboard($clr-light-red-work, url("../images/icon-work.svg"));
+                }
+            
+                .play {
+                    grid-area: play;
+                    @include dashboard($clr-soft-blue-play, url("../images/icon-play.svg"));
+                }
+            
+                .study {
+                    grid-area: study;
+                    @include dashboard($clr-light-red-study, url("../images/icon-study.svg"));
+                }
+            
+                .exercise {
+                    grid-area: exercise;
+                    @include dashboard($clr-lime-green-exercise, url("../images/icon-exercise.svg"));
+                }
+            
+                .social {
+                    grid-area: social;
+                    @include dashboard($clr-violet-social, url("../images/icon-social.svg"));
+                }
+            
+                .self-care {
+                    grid-area: self-care;
+                    @include dashboard($clr-soft-orange-self-care, url("../images/icon-self-care.svg"));
                 }
             }
         }
-
-        &__period {
-            display: flex;
-            gap: 2rem;
-            padding: 1rem;
-            justify-content: space-around;
-            align-items: center;
-            font-size: .8rem;
-
-            .link:hover {
-                color: white;
-                cursor: pointer;
-            }
-
-            .link:visited:not(:hover) {
-                color: var(--clr-primary-100);
-            }
-        }
-    }
-
-    section {
-        max-width: 400px;
-        width: 100%;
-    }
-
-    .work {
-        grid-area: work;
-        @include dashboard($clr-light-red-work, url("../images/icon-work.svg"));
-    }
-
-    .play {
-        grid-area: play;
-        @include dashboard($clr-soft-blue-play, url("../images/icon-play.svg"));
-    }
-
-    .study {
-        grid-area: study;
-        @include dashboard($clr-light-red-study, url("../images/icon-study.svg"));
-    }
-
-    .exercise {
-        grid-area: exercise;
-        @include dashboard($clr-lime-green-exercise, url("../images/icon-exercise.svg"));
-    }
-
-    .social {
-        grid-area: social;
-        @include dashboard($clr-violet-social, url("../images/icon-social.svg"));
-    }
-
-    .self-care {
-        grid-area: self-care;
-        @include dashboard($clr-soft-orange-self-care, url("../images/icon-self-care.svg"));
     }
 
     footer {
@@ -111,71 +133,84 @@ body {
 
 @media screen and (min-width: 1000px) {
     body {
-        display: grid;
-        grid-template-columns: repeat(4, 10rem);
-        grid-template-rows: repeat(2, 10rem);
-        grid-template-areas: 
-            "header work play study"
-            "header exercise social self-care";
+        flex-direction: column;
         gap: 1.5rem;
         height: calc(100vh - 1px);
         padding: 10rem 7rem;
-        place-content: center;
+        align-items: center;
 
-        .card__header {
-            align-self: start;
-            height: 100%;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 70% 30%;
-            
-            &__profile {
+        .container {
+            flex-direction: row;
+
+            .card__header {
+                display: flex;
                 flex-direction: column;
-                gap: 2.5rem;
-                align-items: flex-start;
-                justify-content: unset;
+                width: 10rem;
 
-                &--image {
-                    width: 40%;
+                &__profile {
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: unset;
+                    flex-grow: 1;
+
+                    &--image {
+                        width: 40%;
+                    }
+
+                    &__title {
+                        &--name {
+                            font-size: 1.5rem;
+                        }
+                    }
                 }
 
-                &__title {
-                    &--name {
-                        font-size: 1.5rem;
+                &__period {
+                    flex-direction: column;
+                    gap: .5rem;
+                    align-items: flex-start;
+                    padding: 1rem;
+                }
+            }
+
+            .panel-containers {
+                .timecards {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-areas: 
+                        "work play study"
+                        "exercise social self-care";
+                    place-content: center;
+                    gap: 1rem;
+
+                    .work {
+                        @include dashboard-desktop;
+                    }
+
+                    .play {
+                        @include dashboard-desktop;
+                    }
+
+                    .study {
+                        @include dashboard-desktop;
+                    }
+
+                    .exercise {
+                        @include dashboard-desktop;
+                    }
+
+                    .social {
+                        @include dashboard-desktop;
+                    }
+
+                    .self-care {
+                        @include dashboard-desktop;
                     }
                 }
             }
-
-            &__period {
-                flex-direction: column;
-                gap: .5rem;
-                align-items: flex-start;
-                padding: 1rem;
-            }
         }
 
-        .work {
-            @include dashboard-desktop;
-        }
-
-        .play {
-            @include dashboard-desktop;
-        }
-
-        .study {
-            @include dashboard-desktop;
-        }
-
-        .exercise {
-            @include dashboard-desktop;
-        }
-
-        .social {
-            @include dashboard-desktop;
-        }
-
-        .self-care {
-            @include dashboard-desktop;
+        footer {
+            display: block;
         }
     }
 }

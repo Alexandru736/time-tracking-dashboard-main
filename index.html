@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="css/styles.css">
 
-  <title>Frontend Mentor | Time tracking dashboard</title>
+  <title>Frontend Mentor | Time tracking card-top</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -16,171 +16,40 @@
   </style>
 </head>
 <body>
-
-  <header class="card__header">
-    <div class="card__header__profile">
-      <img src="images/image-jeremy.png" alt="" class="card__header__profile--image">
-      <div class="card__header__profile__title">
-        <p class="card__header__profile__title--reason">Report for</p>
-        <h1 class="card__header__profile__title--name">Jeremy Robson</h1>
-      </div>
-    </div>
-    <div class="card__header__period">
-      <p class="card__header__period--daily link" data-timeframe="daily">Daily</p>
-      <p class="card__header__period--weekly link" data-timeframe="weekly">Weekly</p>
-      <p class="card__header__period--yearly link" data-timeframe="monthly">Monthly</p>
-    </div>
-  </header>
-
-  <section class="work">
-    <div class="dashboard">
-      <div class="card">
-        <div class="card__first-row">
-          <h2 class="card__first-row__title">Work</h2>
-          <div class="icon-ellipsis"></div>
-        </div>
-        <div class="card__second-row">
-          <div class="card__second-row__daily">
-            <p class="card__second-row__daily current">5hrs</p> <!-- daily -->
-            <p class="card__second-row__daily previous">Previous - 7hrs</p> <!-- daily -->
-          </div>
-          <div class="card__second-row__weekly">
-            <p class="card__second-row__weekly current">32hrs</p> <!-- weekly -->
-            <p class="card__second-row__weekly previous">Previous - 36hrs</p> <!-- weekly -->
-          </div>
-          <div class="card__second-row__monthly">
-            <p class="card__second-row__monthly current">103hrs</p> <!-- monthly -->
-            <p class="card__second-row__monthly previous">Previous - 128hrs</p> <!-- monthly -->
-          </div>
+  <div class="container">
+    <div class="card__header">
+      <div class="card__header__profile">
+        <img src="images/image-jeremy.png" alt="" class="card__header__profile--image">
+        <div class="card__header__profile__title">
+          <p class="card__header__profile__title--reason">Report for</p>
+          <h1 class="card__header__profile__title--name">Jeremy Robson</h1>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="play">
-    <div class="dashboard">
-      <div class="card">
-        <div class="card__first-row">
-          <h2 class="card__first-row__title">Play</h2>
-          <div class="icon-ellipsis"></div>
-        </div>
-        <div class="card__second-row">
-          <div class="card__second-row__daily">
-            <p class="card__second-row__daily current">1hr</p> <!-- daily -->
-            <p class="card__second-row__daily previous">Previous - 2hrs</p> <!-- daily -->
-          </div>
-          <div class="card__second-row__weekly">
-            <p class="card__second-row__weekly current">10hrs</p> <!-- weekly -->
-            <p class="card__second-row__weekly previous">Previous - 8hrs</p> <!-- weekly -->
-          </div>
-          <div class="card__second-row__monthly">
-            <p class="card__second-row__monthly current">23hrs</p> <!-- monthly -->
-            <p class="card__second-row__monthly previous">Previous - 29hrs</p> <!-- monthly -->
-          </div>
-        </div>
+      <div role="tablist" aria-label="Time tracking tablist" class="card__header__period">
+        <button 
+          role="tab" 
+          aria-controls="panel-daily" 
+          id="tab-daily" 
+          aria-selected="true">
+            Daily
+        </button>
+        <button 
+          role="tab" 
+          aria-controls="panel-weekly" 
+          id="tab-weekly" 
+          aria-selected="false">
+            Weekly
+        </button>
+        <button 
+          role="tab" 
+          aria-controls="panel-monthly" 
+          id="tab-monthly" 
+          aria-selected="false">
+            Monthly
+        </button>
       </div>
     </div>
-  </section>
-
-  <section class="study">
-    <div class="dashboard">
-      <div class="card">
-        <div class="card__first-row">
-          <h2 class="card__first-row__title">Study</h2>
-          <div class="icon-ellipsis"></div>
-        </div>
-        <div class="card__second-row">
-          <div class="card__second-row__daily">
-            <p class="card__second-row__daily current">0hrs</p> <!-- daily -->
-            <p class="card__second-row__daily previous">Previous - 1hr</p> <!-- daily -->
-          </div>
-          <div class="card__second-row__weekly">
-            <p class="card__second-row__weekly current">4hrs</p> <!-- weekly -->
-            <p class="card__second-row__weekly previous">Previous - 7hrs</p> <!-- weekly -->
-          </div>
-          <div class="card__second-row__monthly">
-            <p class="card__second-row__monthly current">13hrs</p> <!-- monthly -->
-            <p class="card__second-row__monthly previous">Previous - 19hrs</p> <!-- monthly -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="exercise">
-    <div class="dashboard">
-      <div class="card">
-        <div class="card__first-row">
-          <h2 class="card__first-row__title">Exercise</h2>
-          <div class="icon-ellipsis"></div>
-        </div>
-        <div class="card__second-row">
-          <div class="card__second-row__daily">
-            <p class="card__second-row__daily current">1hr</p> <!-- daily -->
-            <p class="card__second-row__daily previous">Previous - 1hr</p> <!-- daily -->
-          </div>
-          <div class="card__second-row__weekly">
-            <p class="card__second-row__weekly current">4hrs</p> <!-- weekly -->
-            <p class="card__second-row__weekly previous">Previous - 5hrs</p> <!-- weekly -->
-          </div>
-          <div class="card__second-row__monthly">
-            <p class="card__second-row__monthly current">11hrs</p> <!-- monthly -->
-            <p class="card__second-row__monthly previous">Previous - 18hrs</p> <!-- monthly -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="social">
-    <div class="dashboard">
-      <div class="card">
-        <div class="card__first-row">
-          <h2 class="card__first-row__title">Social</h2>
-          <div class="icon-ellipsis"></div>
-        </div>
-        <div class="card__second-row">
-          <div class="card__second-row__daily">
-            <p class="card__second-row__daily current">1hr</p> <!-- daily -->
-            <p class="card__second-row__daily previous">Previous - 3hrs</p> <!-- daily -->
-          </div>
-          <div class="card__second-row__weekly">
-            <p class="card__second-row__weekly current">5hrs</p> <!-- weekly -->
-            <p class="card__weeklt previous">Previous - 10hrs</p> <!-- weekly -->
-          </div>
-          <div class="card__second-row__monthly">
-            <p class="card__second-row__monthly current">21hrs</p> <!-- monthly -->
-            <p class="card__second-row__monthly--prevoius">Previous - 23hrs</p> <!-- monthly -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="self-care">
-    <div class="dashboard">
-      <div class="card">
-        <div class="card__first-row">
-          <h2 class="card__first-row__title">Self Care</h2>
-          <div class="icon-ellipsis"></div>
-        </div>
-        <div class="card__second-row">
-          <div class="card__second-row__daily">
-            <p class="card__second-row__daily current">0hrs</p> <!-- daily -->
-            <p class="card__second-row__daily previous">Previous - 1hr</p> <!-- daily -->
-          </div>
-          <div class="card__second-row__weekly">
-            <p class="card__second-row__weekly current">2hrs</p> <!-- weekly -->
-            <p class="card__second-row__weekly previous">Previous - 2hrs</p> <!-- weekly -->
-          </div>
-          <div class="card__second-row__monthly">
-            <p class="card__second-row__monthly current">7hrs</p> <!-- monthly -->
-            <p class="card__second-row__monthly previous">Previous - 11hrs</p> <!-- monthly -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 

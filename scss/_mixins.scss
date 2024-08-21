@@ -1,6 +1,6 @@
 @mixin dashboard($color, $dashboard-icon) {
 
-    .dashboard {
+    .card-top {
         background-color: $color;
         background-image: $dashboard-icon;
         background-repeat: no-repeat;
@@ -14,7 +14,6 @@
             padding: 1.25rem 1rem;
             display: flex;
             flex-direction: column;
-            gap: .25rem;
 
             &__first-row {
                 display: flex;
@@ -32,29 +31,26 @@
                     height: 5px;
                     background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23BBC0FF' fill-rule='evenodd'/%3E%3C/svg%3E");
                     background-repeat: no-repeat;
+                    background-color: inherit;
+                    border: none;
+                    background-position: 50%;
                 }
 
-                .icon-ellipsis:hover {
+                .icon-ellipsis:where(:hover, :focus) {
                     background-image: url("data:image/svg+xml,%3Csvg width='21' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E");
+                }
+
+                .icon-ellipsis:focus {
+                    outline: none;
+                    transition: box-shadow 0.2s ease-in-out;
+                    box-shadow: 0 0 15px .2rem $clr-desaturated-blue;
                 }
             }
 
             &__second-row {
-                &__daily {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                }
-
-                &__weekly {
-                    display: none;
-
-                }
-
-                &__monthly {
-                    display: none;
-
-                }
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
 
                 .current {
                     color: white;
@@ -72,31 +68,26 @@
 }
 
 @mixin dashboard-desktop {
-    height: 100%;
 
-    .dashboard {
-        height: 100%;
-        position: relative;
+    .card-top {
 
         .card {
-            position: absolute;
             bottom: 0;
             width: 100%;
+            min-width: 200px;
             height: 80%;
             padding: 1rem;
-            justify-content: space-between;
-
+            gap: 1rem;
 
             &__second-row {
-                &__daily {
-                    flex-direction: column;
-                    justify-content: unset;
-                    align-items: flex-start;
+                flex-direction: column;
+                justify-content: unset;
+                align-items: flex-start;
+                gap: .5rem;
 
-                    &--current {
-                        margin-bottom: 0.2rem;
-                        font-size: 2.5rem;
-                    }
+                &--current {
+                    margin-bottom: 0.2rem;
+                    font-size: 2.5rem;
                 }
             }
         }
